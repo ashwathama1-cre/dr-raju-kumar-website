@@ -7,14 +7,15 @@ import "./globals.css";
 
 import WhatsAppButton from "@/components/shared/WhatsAppButton";
 import CallButton from "@/components/shared/CallButton";
+import MedicalSchema from "@/components/seo/MedicalSchema";
 
 
 
 const inter = Inter({
 
-  subsets:["latin"],
+  subsets: ["latin"],
 
-  variable:"--font-inter",
+  variable: "--font-inter",
 
 });
 
@@ -22,9 +23,9 @@ const inter = Inter({
 
 const playfair = Playfair_Display({
 
-  subsets:["latin"],
+  subsets: ["latin"],
 
-  variable:"--font-playfair",
+  variable: "--font-playfair",
 
 });
 
@@ -38,20 +39,21 @@ export const metadata: Metadata = {
 
 
   description:
-    "Dr. Raju Kumar is a leading Gastroenterologist in Lucknow specializing in liver diseases, digestive disorders, GERD, IBS and advanced endoscopy procedures.",
+    "Dr. Raju Kumar is a leading Gastroenterologist in Lucknow specializing in digestive disorders, liver diseases, GERD, IBS, fatty liver and advanced endoscopy procedures.",
 
 
-  keywords:[
 
-    "Gastroenterologist Lucknow",
+  keywords: [
 
     "Best Gastroenterologist in Lucknow",
 
+    "Gastroenterologist Lucknow",
+
     "Liver Specialist Lucknow",
 
-    "Endoscopy Specialist",
+    "Endoscopy Specialist Lucknow",
 
-    "Digestive Disease Specialist",
+    "Digestive Disease Doctor",
 
     "Dr Raju Kumar",
 
@@ -59,10 +61,10 @@ export const metadata: Metadata = {
 
 
 
-  authors:[
+  authors: [
 
     {
-      name:"Dr. Raju Kumar",
+      name: "Dr. Raju Kumar",
     }
 
   ],
@@ -70,12 +72,20 @@ export const metadata: Metadata = {
 
 
   creator:
+
     "Dr. Raju Kumar",
 
 
 
-  openGraph:{
+  metadataBase:
 
+    new URL(
+      "https://your-domain.com"
+    ),
+
+
+
+  openGraph: {
 
     title:
       "Dr. Raju Kumar | Gastroenterologist Lucknow",
@@ -85,10 +95,12 @@ export const metadata: Metadata = {
       "Advanced digestive care, liver treatment and endoscopy services in Lucknow.",
 
 
-    type:"website",
+    type:
+      "website",
 
 
-    locale:"en_IN",
+    locale:
+      "en_IN",
 
 
     siteName:
@@ -98,10 +110,10 @@ export const metadata: Metadata = {
 
 
 
-  twitter:{
+  twitter: {
 
-
-    card:"summary_large_image",
+    card:
+      "summary_large_image",
 
 
     title:
@@ -109,19 +121,17 @@ export const metadata: Metadata = {
 
 
     description:
-      "Expert gastroenterology and liver care in Lucknow.",
+      "Expert gastroenterology, liver care and endoscopy services in Lucknow.",
 
   },
 
 
-  robots:{
 
+  robots: {
 
     index:true,
 
-
     follow:true,
-
 
   },
 
@@ -163,8 +173,15 @@ export default function RootLayout({
 
 
 
-        <WhatsAppButton />
+        {/* Google Medical Structured Data */}
 
+        <MedicalSchema />
+
+
+
+        {/* Floating Contact Actions */}
+
+        <WhatsAppButton />
 
         <CallButton />
 

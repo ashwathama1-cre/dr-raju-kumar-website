@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   Award,
   MapPin,
@@ -106,71 +107,115 @@ export default function DoctorCard() {
         >
 
 
-          {/* Placeholder */}
+{/* Optimized Doctor Image */}
 
-          <motion.div
+<motion.div
 
-            animate={{
-              y:[0,-10,0],
-            }}
+  animate={{
+    y:[0,-10,0],
+  }}
 
-            transition={{
-              duration:5,
-              repeat:Infinity,
-              ease:"easeInOut",
-            }}
+  transition={{
+    duration:5,
+    repeat:Infinity,
+    ease:"easeInOut",
+  }}
 
-            className="
-            text-center
-            "
-          >
-
-            <div
-              className="
-              text-[120px]
-              "
-            >
-              👨‍⚕️
-            </div>
+  className="
+  relative
+  h-full
+  w-full
+  "
+>
 
 
-            <h2
-              className="
-              mt-5
-              text-3xl
-              font-bold
-              gold-gradient
-              "
-            >
-              Dr. Raju Kumar
-            </h2>
+<Image
+
+  src="/doctor-placeholder.jpg"
+
+  alt="Dr. Raju Kumar Gastroenterologist and Liver Specialist Lucknow"
+
+  fill
+
+  priority
+
+  sizes="(max-width:768px) 100vw, 500px"
+
+  className="
+  object-cover
+  rounded-[35px]
+  "
+/>
 
 
-            <p
-              className="
-              mt-3
-              text-gray-400
-              "
-            >
-              Gastroenterologist
-            </p>
+
+{/* Image Overlay */}
+
+<div
+
+className="
+absolute
+inset-0
+flex
+items-end
+justify-center
+bg-gradient-to-t
+from-black/80
+via-transparent
+to-transparent
+"
+
+>
+
+<div
+className="
+mb-10
+text-center
+"
+>
 
 
-            <p
-              className="
-              mt-2
-              text-xs
-              uppercase
-              tracking-[0.35em]
-              text-[#c9b8a0]
-              "
-            >
-              Liver Specialist
-            </p>
+<h2
+className="
+text-3xl
+font-bold
+gold-gradient
+"
+>
+Dr. Raju Kumar
+</h2>
 
 
-          </motion.div>
+<p
+className="
+mt-3
+text-gray-300
+"
+>
+Gastroenterologist
+</p>
 
+
+<p
+className="
+mt-2
+text-xs
+uppercase
+tracking-[0.35em]
+text-[#c9b8a0]
+"
+>
+Liver Specialist
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</motion.div>
 
         </div>
 
