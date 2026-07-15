@@ -1,152 +1,411 @@
 "use client";
 
-import Image from "next/image";
-import { Award, HeartPulse, Stethoscope } from "lucide-react";
 import { motion } from "framer-motion";
+import {
+  Award,
+  MapPin,
+  Star,
+  Stethoscope,
+  UserRoundCheck,
+} from "lucide-react";
+
+import FloatingCard from "./FloatingCard";
+
 
 export default function DoctorCard() {
   return (
     <motion.div
-      initial={{ opacity: 0, x: 80 }}
-      animate={{ opacity: 1, x: 0 }}
+      initial={{
+        opacity: 0,
+        scale: 0.9,
+        y: 40,
+      }}
+
+      animate={{
+        opacity: 1,
+        scale: 1,
+        y: 0,
+      }}
+
       transition={{
         duration: 1,
-        ease: [0.4, 0, 0.2, 1],
+        ease: "easeOut",
       }}
-      whileHover={{
-        y: -8,
-      }}
-      className="relative"
+
+      className="
+      relative
+      w-full
+      max-w-lg
+      "
     >
-      {/* Glow */}
 
-      <div className="absolute inset-0 rounded-[42px] bg-[#a78b71]/20 blur-3xl" />
 
-      {/* Glass Card */}
+      {/* Outer Gold Glow */}
 
-      <div className="glass relative overflow-hidden rounded-[42px] border border-white/10 p-6 backdrop-blur-xl">
+      <motion.div
 
-        {/* Doctor Image */}
+        animate={{
+          opacity:[0.3,0.6,0.3],
+          scale:[1,1.08,1],
+        }}
 
-        <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-neutral-900">
+        transition={{
+          duration:6,
+          repeat:Infinity,
+          ease:"easeInOut",
+        }}
 
-          {/* Replace this image later */}
+        className="
+        absolute
+        inset-0
+        rounded-[45px]
+        bg-[#a78b71]/20
+        blur-[100px]
+        "
+      />
 
-          <Image
-            src="/doctor-placeholder.jpg"
-            alt="Dr. Raju Kumar"
-            fill
-            priority
+
+
+      {/* Main Glass Card */}
+
+
+      <div
+        className="
+        relative
+        overflow-visible
+        rounded-[45px]
+        border
+        border-white/10
+        bg-white/[0.04]
+        p-8
+        backdrop-blur-2xl
+        shadow-[0_0_100px_rgba(167,139,113,0.15)]
+        "
+      >
+
+
+        {/* Doctor Image Area */}
+
+
+        <div
+          className="
+          relative
+          aspect-[4/5]
+          overflow-hidden
+          rounded-[35px]
+          border
+          border-white/10
+          bg-gradient-to-br
+          from-neutral-900
+          via-neutral-950
+          to-black
+          flex
+          items-center
+          justify-center
+          "
+        >
+
+
+          {/* Placeholder */}
+
+          <motion.div
+
+            animate={{
+              y:[0,-10,0],
+            }}
+
+            transition={{
+              duration:5,
+              repeat:Infinity,
+              ease:"easeInOut",
+            }}
+
             className="
-              object-cover
-              grayscale
-              transition-all
-              duration-700
-              hover:scale-105
-              hover:grayscale-0
+            text-center
             "
-          />
+          >
 
-          {/* Dark Overlay */}
+            <div
+              className="
+              text-[120px]
+              "
+            >
+              👨‍⚕️
+            </div>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
 
-          {/* Doctor Details */}
-
-          <div className="absolute bottom-8 left-8">
-
-            <h2 className="text-4xl font-bold italic text-white">
+            <h2
+              className="
+              mt-5
+              text-3xl
+              font-bold
+              gold-gradient
+              "
+            >
               Dr. Raju Kumar
             </h2>
 
-            <p className="mt-2 uppercase tracking-[0.35em] text-[#c9b8a0] text-xs">
+
+            <p
+              className="
+              mt-3
+              text-gray-400
+              "
+            >
               Gastroenterologist
             </p>
 
-          </div>
+
+            <p
+              className="
+              mt-2
+              text-xs
+              uppercase
+              tracking-[0.35em]
+              text-[#c9b8a0]
+              "
+            >
+              Liver Specialist
+            </p>
+
+
+          </motion.div>
+
 
         </div>
 
-        {/* Bottom Feature Cards */}
 
-        <div className="mt-8 grid grid-cols-3 gap-4">
 
-          <div className="glass rounded-2xl p-4 text-center">
+        {/* Top Rating Badge */}
 
-            <Award
-              className="mx-auto mb-3 text-[#a78b71]"
-              size={28}
+
+        <motion.div
+
+          animate={{
+            y:[0,-8,0],
+          }}
+
+          transition={{
+            duration:4,
+            repeat:Infinity,
+          }}
+
+          className="
+          absolute
+          -top-5
+          right-8
+          "
+        >
+
+          <div
+            className="
+            flex
+            items-center
+            gap-2
+            rounded-full
+            border
+            border-[#a78b71]/40
+            bg-black/70
+            px-5
+            py-3
+            backdrop-blur-xl
+            "
+          >
+
+            <Star
+              size={16}
+              className="text-[#a78b71]"
+              fill="currentColor"
             />
 
-            <p className="text-sm font-semibold">
-              10+ Years
-            </p>
-
-          </div>
-
-          <div className="glass rounded-2xl p-4 text-center">
-
-            <HeartPulse
-              className="mx-auto mb-3 text-[#a78b71]"
-              size={28}
-            />
-
-            <p className="text-sm font-semibold">
-              1000+ Patients
-            </p>
-
-          </div>
-
-          <div className="glass rounded-2xl p-4 text-center">
-
-            <Stethoscope
-              className="mx-auto mb-3 text-[#a78b71]"
-              size={28}
-            />
-
-            <p className="text-sm font-semibold">
-              Endoscopy
-            </p>
-
-          </div>
-
-        </div>
-
-        {/* Floating Badge */}
-
-        <div className="absolute -left-6 top-10">
-
-          <div className="glass rounded-full px-5 py-3">
-
-            <span className="text-xs uppercase tracking-[0.3em] text-[#c9b8a0]">
-              Google
+            <span
+              className="
+              text-sm
+              text-white
+              "
+            >
+              4.9 Rating
             </span>
 
-            <p className="mt-1 text-xl font-bold gold-gradient">
-              4.9 ★
-            </p>
-
           </div>
+
+
+        </motion.div>
+
+
+
+
+        {/* Left Experience Badge */}
+
+
+        <div
+          className="
+          absolute
+          -left-10
+          top-24
+          "
+        >
+
+          <FloatingCard
+            title="Experience"
+            value="10+ Years"
+          />
 
         </div>
 
-        <div className="absolute -right-6 bottom-12">
 
-          <div className="glass rounded-full px-5 py-3">
 
-            <span className="text-xs uppercase tracking-[0.3em] text-[#c9b8a0]">
-              Reviews
-            </span>
 
-            <p className="mt-1 text-xl font-bold gold-gradient">
-              120+
-            </p>
+        {/* Right Specialty Badge */}
 
-          </div>
+
+        <div
+          className="
+          absolute
+          -right-10
+          bottom-28
+          "
+        >
+
+          <FloatingCard
+            title="Speciality"
+            value="Endoscopy"
+          />
 
         </div>
+
+
+
+
+
+        {/* Bottom Information */}
+
+
+        <div
+          className="
+          mt-8
+          grid
+          gap-4
+          sm:grid-cols-2
+          "
+        >
+
+
+          <InfoBox
+            icon={<Award size={18}/>}
+            title="Certified"
+            value="Medical Expert"
+          />
+
+
+          <InfoBox
+            icon={<UserRoundCheck size={18}/>}
+            title="Patients"
+            value="1000+"
+          />
+
+
+          <InfoBox
+            icon={<Stethoscope size={18}/>}
+            title="Treatment"
+            value="Digestive Care"
+          />
+
+
+          <InfoBox
+            icon={<MapPin size={18}/>}
+            title="Clinic"
+            value="Lucknow"
+          />
+
+
+        </div>
+
+
 
       </div>
+
+
     </motion.div>
+  );
+}
+
+
+
+
+
+function InfoBox({
+  icon,
+  title,
+  value,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  value: string;
+}) {
+
+  return (
+
+    <div
+      className="
+      rounded-2xl
+      border
+      border-white/10
+      bg-white/[0.03]
+      p-4
+      backdrop-blur-xl
+      "
+    >
+
+      <div
+        className="
+        flex
+        items-center
+        gap-3
+        "
+      >
+
+        <div
+          className="
+          text-[#a78b71]
+          "
+        >
+          {icon}
+        </div>
+
+
+        <div>
+
+          <p
+            className="
+            text-xs
+            uppercase
+            tracking-wider
+            text-gray-500
+            "
+          >
+            {title}
+          </p>
+
+
+          <p
+            className="
+            mt-1
+            text-sm
+            text-white
+            "
+          >
+            {value}
+          </p>
+
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
   );
 }
