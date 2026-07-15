@@ -1,17 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ffffff;
-
+  --bg: #0a0a0a;
   --gold: #a78b71;
   --gold-light: #c9b8a0;
   --gold-hover: #e8d5b7;
-
   --glass: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.08);
-
-  --radius: 28px;
 }
 
 * {
@@ -25,148 +19,68 @@ html {
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-inter), sans-serif;
+  background: var(--bg);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
-  min-height: 100vh;
-  position: relative;
-}
-
-/* Premium dotted background */
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
   background-image: radial-gradient(
     rgba(255,255,255,.08) 1px,
     transparent 1px
   );
   background-size: 32px 32px;
-  z-index: -2;
 }
 
-/* Golden Glow */
-
-body::after{
-  content:"";
-  position:fixed;
-  width:700px;
-  height:700px;
-  left:50%;
-  top:180px;
-  transform:translateX(-50%);
-  background:rgba(167,139,113,.18);
-  filter:blur(170px);
-  border-radius:50%;
-  z-index:-1;
+.gold {
+  color: var(--gold);
 }
 
-/* Typography */
-
-h1,h2,h3,h4{
-  font-family:var(--font-playfair),serif;
-}
-
-p{
-  color:#d1d5db;
-  line-height:1.8;
-}
-
-/* Containers */
-
-.container{
-  width:min(1280px,92%);
-  margin:auto;
-}
-
-/* Glass Effect */
-
-.glass{
-  background:var(--glass);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  border:1px solid var(--glass-border);
-  border-radius:28px;
-}
-
-/* Gold Text */
-
-.gold{
-  color:var(--gold);
-}
-
-/* Buttons */
-
-.btn-primary{
-  background:white;
-  color:black;
-  padding:15px 34px;
-  border-radius:999px;
-  transition:.35s cubic-bezier(.4,0,.2,1);
-  font-weight:600;
-}
-
-.btn-primary:hover{
-  transform:translateY(-3px);
-}
-
-.btn-secondary{
-  border:1px solid rgba(255,255,255,.25);
-  padding:15px 34px;
-  border-radius:999px;
-  color:white;
-  transition:.35s cubic-bezier(.4,0,.2,1);
-}
-
-.btn-secondary:hover{
-  border-color:var(--gold);
-  color:var(--gold-light);
-}
-
-/* Sections */
-
-section{
-  padding:120px 0;
-}
-
-/* Card Hover */
-
-.hover-card{
-  transition:.45s cubic-bezier(.4,0,.2,1);
-}
-
-.hover-card:hover{
-  transform:translateY(-10px);
-  border-color:rgba(167,139,113,.45);
-  box-shadow:0 0 60px rgba(167,139,113,.18);
-}
-
-/* Gold Gradient */
-
-.gold-gradient{
-  background:linear-gradient(
-      90deg,
-      var(--gold-light),
-      var(--gold)
+.gold-gradient {
+  background: linear-gradient(
+    90deg,
+    var(--gold-light),
+    var(--gold)
   );
-  -webkit-background-clip:text;
-  color:transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Scrollbar */
-
-::-webkit-scrollbar{
-  width:8px;
+.glass {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
 }
 
-::-webkit-scrollbar-thumb{
-  background:var(--gold);
-  border-radius:999px;
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .9rem 2rem;
+  border-radius: 9999px;
+  background: white;
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  transition: .3s;
 }
 
-::-webkit-scrollbar-track{
-  background:#111;
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .9rem 2rem;
+  border-radius: 9999px;
+  border: 1px solid var(--gold);
+  color: white;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.btn-secondary:hover {
+  background: var(--gold);
+  color: black;
 }
