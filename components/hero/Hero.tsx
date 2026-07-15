@@ -3,12 +3,14 @@
 import { motion } from "framer-motion";
 
 import HeroBackground from "./HeroBackground";
+import HeroGlow from "./HeroGlow";
 import NeuralLines from "./NeuralLines";
 import CTAButtons from "./CTAButtons";
 import FloatingCard from "./FloatingCard";
 import LiveBadge from "./LiveBadge";
 import MouseParallax from "./MouseParallax";
 import DoctorCard from "./DoctorCard";
+
 import Float from "@/components/animations/Float";
 
 
@@ -67,6 +69,8 @@ export default function Hero() {
       {/* ================================================= */}
 
       <HeroBackground />
+
+      <HeroGlow />
 
       <NeuralLines />
 
