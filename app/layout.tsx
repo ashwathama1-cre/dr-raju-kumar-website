@@ -10,21 +10,12 @@ const inter = Inter({
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
-  style: ["italic", "normal"],
 });
 
 export const metadata: Metadata = {
-  title: "Dr. Raju Kumar | Best Gastroenterologist in Lucknow",
+  title: "Dr. Raju Kumar | Gastroenterologist in Lucknow",
   description:
-    "Premium Gastroenterology, Liver Care, Endoscopy & Colonoscopy Clinic in Lucknow.",
-  keywords: [
-    "Gastroenterologist",
-    "Liver Specialist",
-    "Endoscopy",
-    "Lucknow",
-    "Dr. Raju Kumar",
-    "Genesis Clinic",
-  ],
+    "Expert Gastroenterologist, Liver Specialist & Endoscopy Care in Lucknow.",
 };
 
 export default function RootLayout({
@@ -35,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${playfair.variable} antialiased`}
+        className={`${inter.variable} ${playfair.variable}`}
       >
         {children}
       </body>
