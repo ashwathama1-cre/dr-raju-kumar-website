@@ -7,38 +7,60 @@ import { galleryItems } from "./galleryData";
 
 
 const containerVariants = {
+
   hidden:{
     opacity:0,
   },
 
   visible:{
+
     opacity:1,
 
     transition:{
-      staggerChildren:0.15,
+
+      staggerChildren:0.12,
+
+      delayChildren:0.15,
+
     },
+
   },
+
 };
+
 
 
 const itemVariants = {
 
   hidden:{
+
     opacity:0,
-    y:40,
+
+    y:35,
+
   },
 
+
   visible:{
+
     opacity:1,
+
     y:0,
 
+
     transition:{
-      duration:0.8,
+
+      duration:0.7,
+
       ease:"easeOut",
+
     },
+
   },
 
 };
+
+
 
 
 
@@ -47,6 +69,7 @@ export default function Gallery(){
   return (
 
     <section
+
       id="gallery"
 
       className="
@@ -55,13 +78,34 @@ export default function Gallery(){
       bg-[#0a0a0a]
       py-28
       "
+
     >
 
 
-      {/* Background Glow */}
+
+      {/* Premium Background Glow */}
 
 
-      <div
+      <motion.div
+
+        animate={{
+
+          scale:[1,1.1,1],
+
+          opacity:[0.25,0.45,0.25],
+
+        }}
+
+        transition={{
+
+          duration:8,
+
+          repeat:Infinity,
+
+          ease:"easeInOut",
+
+        }}
+
         className="
         absolute
         left-1/2
@@ -73,6 +117,7 @@ export default function Gallery(){
         bg-[#a78b71]/10
         blur-[180px]
         "
+
       />
 
 
@@ -80,6 +125,7 @@ export default function Gallery(){
 
 
       <div
+
         className="
         container
         relative
@@ -87,48 +133,71 @@ export default function Gallery(){
         mx-auto
         px-6
         "
+
       >
 
 
 
-        {/* Heading */}
+
+        {/* SECTION HEADER */}
 
 
         <motion.div
 
+
           initial={{
+
             opacity:0,
-            y:40,
+
+            y:30,
+
           }}
+
 
           whileInView={{
+
             opacity:1,
+
             y:0,
+
           }}
+
 
           viewport={{
+
             once:true,
+
+            amount:0.3,
+
           }}
 
+
           transition={{
-            duration:0.8,
+
+            duration:0.7,
+
           }}
+
 
           className="
           mx-auto
           max-w-3xl
           text-center
           "
+
         >
 
 
+
           <p
+
             className="
             text-xs
             uppercase
             tracking-[0.5em]
             text-[#c9b8a0]
             "
+
           >
 
             Our Medical Environment
@@ -137,7 +206,9 @@ export default function Gallery(){
 
 
 
+
           <h2
+
             className="
             mt-6
             text-4xl
@@ -145,9 +216,11 @@ export default function Gallery(){
             italic
             md:text-6xl
             "
+
           >
 
             Excellence In
+
 
             <span className="gold-gradient">
 
@@ -160,13 +233,17 @@ export default function Gallery(){
 
 
 
+
+
           <p
+
             className="
             mt-6
             text-lg
             leading-8
             text-gray-400
             "
+
           >
 
             Explore our advanced gastroenterology care,
@@ -176,28 +253,40 @@ export default function Gallery(){
           </p>
 
 
+
         </motion.div>
 
 
 
 
 
-        {/* Gallery Grid */}
+
+        {/* GALLERY GRID */}
 
 
 
         <motion.div
 
+
           variants={containerVariants}
+
 
           initial="hidden"
 
+
           whileInView="visible"
 
+
+
           viewport={{
+
             once:true,
-            amount:0.2,
+
+            amount:0.15,
+
           }}
+
+
 
           className="
           mt-16
@@ -206,6 +295,7 @@ export default function Gallery(){
           sm:grid-cols-2
           lg:grid-cols-3
           "
+
         >
 
 
@@ -213,13 +303,26 @@ export default function Gallery(){
           {
             galleryItems.map((item)=>(
 
+
               <motion.div
+
 
                 key={item.id}
 
+
                 variants={itemVariants}
 
+
+
+                style={{
+
+                  willChange:"transform, opacity",
+
+                }}
+
+
               >
+
 
                 <GalleryCard
 
@@ -231,7 +334,9 @@ export default function Gallery(){
 
                 />
 
+
               </motion.div>
+
 
             ))
           }
@@ -244,6 +349,7 @@ export default function Gallery(){
 
 
       </div>
+
 
 
     </section>

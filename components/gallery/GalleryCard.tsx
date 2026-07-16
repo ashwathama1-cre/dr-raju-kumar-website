@@ -1,11 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
+
 type Props = {
-  title:string;
-  category:string;
-  image:string;
+  title: string;
+  category: string;
+  image: string;
 };
 
 
@@ -13,14 +15,19 @@ export default function GalleryCard({
   title,
   category,
   image,
-}:Props){
+}: Props) {
+
 
   return (
 
     <motion.div
 
       whileHover={{
-        y:-10,
+        y: -10,
+      }}
+
+      transition={{
+        duration:0.4,
       }}
 
       className="
@@ -36,8 +43,11 @@ export default function GalleryCard({
     >
 
 
+      {/* IMAGE AREA */}
+
       <div
         className="
+        relative
         aspect-[4/3]
         overflow-hidden
         bg-gradient-to-br
@@ -47,61 +57,80 @@ export default function GalleryCard({
         "
       >
 
-        {/* Placeholder image */}
 
-        <div
-          className="
-          flex
-          h-full
-          items-center
-          justify-center
-          text-6xl
+        <Image
+
+          src={image}
+
+          alt={`${title} - Dr. Raju Kumar Clinic Lucknow`}
+
+          fill
+
+          sizes="
+          (max-width:768px) 100vw,
+          (max-width:1200px) 50vw,
+          33vw
           "
-        >
 
-          🏥
+          className="
+          object-cover
+          transition
+          duration-700
+          group-hover:scale-110
+          "
 
-        </div>
+        />
 
 
       </div>
 
 
 
-      {/* Overlay */}
+      {/* Dark Gradient Overlay */}
 
 
       <div
+
         className="
         absolute
         inset-0
         bg-gradient-to-t
         from-black
-        via-transparent
-        opacity-0
+        via-black/20
+        to-transparent
+        opacity-70
         transition
         duration-500
-        group-hover:opacity-80
+        group-hover:opacity-90
         "
+
       />
 
 
 
+      {/* Content */}
+
+
       <div
+
         className="
         absolute
         bottom-0
         p-6
         "
+
       >
 
+
         <p
+
           className="
           text-xs
           uppercase
           tracking-[0.3em]
           text-[#c9b8a0]
           "
+
         >
 
           {category}
@@ -109,13 +138,16 @@ export default function GalleryCard({
         </p>
 
 
+
         <h3
+
           className="
           mt-2
           text-xl
           font-semibold
           text-white
           "
+
         >
 
           {title}

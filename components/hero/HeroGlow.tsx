@@ -2,117 +2,162 @@
 
 import { motion } from "framer-motion";
 
+
 export default function HeroGlow() {
+
   return (
+
     <>
+
       {/* Main Center Aura */}
 
       <motion.div
+
         animate={{
-          scale: [1, 1.15, 1],
-          opacity: [0.25, 0.45, 0.25],
+
+          scale:[1,1.08,1],
+
+          opacity:[0.25,0.4,0.25],
+
         }}
+
         transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
+
+          duration:10,
+
+          repeat:Infinity,
+
+          ease:"easeInOut",
+
         }}
+
+
         className="
         pointer-events-none
         absolute
         left-1/2
         top-1/2
-        h-[900px]
-        w-[900px]
+        h-[650px]
+        w-[650px]
         -translate-x-1/2
         -translate-y-1/2
         rounded-full
         bg-[#a78b71]/20
-        blur-[220px]
+        blur-[130px]
         "
+
+        style={{
+
+          willChange:"transform, opacity",
+
+        }}
+
       />
 
 
 
-      {/* Top Right Floating Glow */}
+
+
+      {/* Top Gold Light */}
 
 
       <motion.div
+
         animate={{
-          x: [0, 40, 0],
-          y: [0, -30, 0],
+
+          y:[0,30,0],
+
+          opacity:[0.15,0.35,0.15],
+
         }}
+
         transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: "easeInOut",
+
+          duration:12,
+
+          repeat:Infinity,
+
+          ease:"easeInOut",
+
         }}
+
+
         className="
         pointer-events-none
         absolute
-        -right-40
-        top-20
-        h-[500px]
-        w-[500px]
+        -top-32
+        right-20
+        h-72
+        w-72
         rounded-full
-        bg-[#a78b71]/10
-        blur-[180px]
+        bg-[#a78b71]/20
+        blur-[100px]
         "
+
+
+        style={{
+
+          willChange:"transform, opacity",
+
+        }}
+
       />
 
 
 
-      {/* Bottom Left Glow */}
+
+
+
+      {/* Bottom Ambient Light */}
 
 
       <motion.div
+
         animate={{
-          x: [0, -30, 0],
-          y: [0, 30, 0],
+
+          x:[0,25,0],
+
+          opacity:[0.1,0.25,0.1],
+
         }}
+
+
         transition={{
-          duration: 14,
-          repeat: Infinity,
-          ease: "easeInOut",
+
+          duration:14,
+
+          repeat:Infinity,
+
+          ease:"easeInOut",
+
         }}
+
+
         className="
         pointer-events-none
         absolute
-        -left-40
-        bottom-10
-        h-[450px]
-        w-[450px]
+        bottom-0
+        left-0
+        h-80
+        w-80
         rounded-full
         bg-[#c9b8a0]/10
-        blur-[160px]
+        blur-[110px]
         "
+
+
+        style={{
+
+          willChange:"transform, opacity",
+
+        }}
+
       />
 
 
-
-      {/* Soft Gold Line */}
-
-      <motion.div
-        animate={{
-          opacity: [0.15, 0.35, 0.15],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="
-        pointer-events-none
-        absolute
-        left-0
-        right-0
-        top-1/2
-        h-px
-        bg-[#a78b71]/20
-        blur-sm
-        "
-      />
 
     </>
+
   );
+
 }
